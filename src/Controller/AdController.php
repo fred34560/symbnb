@@ -42,10 +42,7 @@ class AdController extends AbstractController
         $form = $this->createForm(AdType::class, $ad);
         $form->handleRequest($request);
 
-        $this->addFlash(
-            'success',
-            "L'annonce <strong>{$ad->getTitle()}</strong> a bien été enregistrée !"
-        );
+        
 
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -57,8 +54,15 @@ class AdController extends AbstractController
 
             }
 
+            $ad->setAuthor($this->getUser());
+
             $manager->persist($ad);
             $manager->flush();
+
+            $this->addFlash(
+            'success',
+            "L'annonce <strong>{$ad->getTitle()}</strong> a bien été enregistrée !"
+            );
 
             return $this->redirectToRoute('ads_show', [
                 'slug' => $ad->getSlug()

@@ -4,6 +4,8 @@
     {{ ad.title }}
 {% endblock %}
 
+{% set a = ad.author %}
+
 {% block body %}
 
 <div class="ad-title" style="background-image: url({{ ad.coverImage }})">
@@ -52,29 +54,20 @@
         </div>
         <div class="col">
             <div class="row">
-                <div class="col-4">
-                    <img src="http://placehold.it/64x64" alt="Avatar de Joseph">
+                <div class="col-3">
+                    <a href="{{ path('user_show', {'slug': a.slug}) }}">
+                        <img class="avatar avatar-medium" src="{{ a.picture }}" alt="Avatar de {{ a.fullName }}">
+                    </a>
                 </div>
                 <div class="col">
-                    <h3>Joseph Dupont</h3>
-                    <span class="badge badge-primary">3 annonces</span>
+                    <a href="{{ path('user_show', {'slug': a.slug}) }}">
+                        <h3>{{ a.fullName }}</h3>
+                    </a>
+                    <span class="badge badge-primary">{{ a.ads | length }} annonces</span>
                 
                 </div>
             </div>
-                <p>
-                    <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit soluta hic sequi nihil alias 
-                    atque sint eum similique ullam placeat?
-                    </p>
-                    <p>
-                    Quo tempora eius dolorum praesentium corporis odit incidunt, perspiciatis cupiditate 
-                    nam quasi fugit vitae modi veritatis maxime, quidem amet laudantium!
-                    </p>
-                    <p>
-                    Perferendis, voluptates vel eos sapiente ex explicabo! Dolor nesciunt maiores officia 
-                    beatae veniam atque fuga, eos, praesentium eius rerum fugiat!
-                    </p>
-                </p>
+                {{ a.description | raw }}
         
         </div>
     </div>
