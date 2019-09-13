@@ -26,3 +26,13 @@ div.carousel-caption {
     max-width: 24px;
     max-height: 24px;
 }
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+    color: red;
+    cursor: default;
+    padding: 15px;
+    
+}
+.day {
+    color: green;
+    padding: 15px;
+}
