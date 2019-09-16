@@ -26,6 +26,10 @@ div.carousel-caption {
     max-width: 24px;
     max-height: 24px;
 }
+.avatar-micro {
+    max-width: 16px;
+    max-height: 16px;
+}
 .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
     color: red;
     cursor: default;
@@ -35,4 +39,7 @@ div.carousel-caption {
 .day {
     color: green;
     padding: 15px;
+}
+span.rating i {
+    color: goldenrod;
 }
